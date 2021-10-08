@@ -1,13 +1,12 @@
 import React from 'react'
 import {HeroContainer, HeroImg} from './StyledComponents/Hero.style.js';
 import {SearchBar} from './SearchBar';
-export const Hero =  function () {
+export const Hero =  function ({search}) {
   return (
       <HeroImg> 
         <HeroContainer>
-          <h1> Welcome to the resturant</h1>
-          <p> dede</p>
-          <SearchBar/>
+          <h1> Welcome to the resturant <span> Get the best recipe</span></h1>
+          <SearchBar search = {search} />
         </HeroContainer>
       </HeroImg>
   )
