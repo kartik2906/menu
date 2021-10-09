@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Form,InputField, Button } from './StyledComponents/SearchBar.style';
 export const SearchBar =  function SearchBar({search}) {
 
-  const [value, setValues] = useState("");
+  const [value, setValues] = useState([]);
 
   const submitHandler = (e) => {
     e.preventDefault();

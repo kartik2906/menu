@@ -1,33 +1,21 @@
-import React,{useState, useEffect} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch,Route } from 'react-router-dom';
 import {GlobalStyle} from './Components/StyledComponents/GlobalStyles';
 import {Navbar} from './Components/Navbar';
-import {Hero} from './Components/Hero';
+import {Home} from './pages/Home';
+import {About} from './pages/About';
+import {Contact} from './pages/Contact';
 function App() {
 
-
-  const [search, setSearch] = useState([]);
-
-  useEffect(() =>{
-      fetchApi(search);
-  },[search]);
-  
-    const fetchApi = (search) => {
-      fetch('https://jsonplaceholder.typicode.com/posts')
-    .then((response) => response.json())
-    .then((json) => console.log(json))
-  }
-  const searching = (text) => {
-    setSearch(text);
-}
   return (
     <>
       <GlobalStyle />
       <Router>
-            <Navbar/>
-            <Hero search = {searching} />
+      <Navbar/>
           <Switch>
-            <Route/>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
           </Switch>
       </Router>
     </>

@@ -13,7 +13,7 @@ export const Form = styled.form`
 
 export const InputField = styled.input`
   padding: 20px 10px;
-  min-width: 400px;
+  min-width: 300px;
   font-size: 16px;
   box-sizing: border-box;
   border: none;
