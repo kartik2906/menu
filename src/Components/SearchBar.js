@@ -1,18 +1,30 @@
 import React, {useState} from 'react'
+import { useHistory } from 'react-router-dom';
 import {Form,InputField, Button } from './StyledComponents/SearchBar.style';
-export const SearchBar =  function SearchBar({search}) {
+export const SearchBar =  function SearchBar({search,data}) {
 
-  const [value, setValues] = useState([]);
+  const [Searchvalue, setSearchValues] = useState("");
+  let history = useHistory();
 
+  // const [error, setErrors] = useState([]);
   const submitHandler = (e) => {
     e.preventDefault();
-    search(value);
+    search(Searchvalue);
+      history.push(
+        {
+          pathname: "/result"
+        }
+      );
+
   }
+
   return (
+  <>
     <Form onSubmit = {submitHandler}>
-      <InputField onChange = {(e) => setValues(e.target.value)} type="text"/>
+      <InputField name = "search"  onChange = {(e) => setSearchValues(e.target.value)} type="text"/>
       <Button>Search</Button>
-    </Form>
+    </Form> 
+  </>
   )
 }
 
